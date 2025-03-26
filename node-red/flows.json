@@ -1,0 +1,18 @@
+[
+    {
+        "id": "1",
+        "type": "mqtt in",
+        "name": "Recibir Datos IoT",
+        "topic": "iot/sensor",
+        "broker": "mqtt-broker",
+        "x": 100,
+        "y": 100
+    },
+    {
+        "id": "2",
+        "type": "debug",
+        "name": "Mostrar Datos",
+        "x": 300,
+        "y": 100
+    }
+]
