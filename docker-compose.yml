@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: mqtt-broker
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mqtt/mosquitto.conf:/mosquitto/config/mosquitto.conf
+    restart: unless-stopped
+
+  node-red:
+    image: nodered/node-red
+    container_name: node-red
+    ports:
+      - "1880:1880"
+    volumes:
+      - ./node-red:/data
+    restart: unless-stopped
+
+  zeek:
+    image: blacktop/zeek
+    container_name: zeek-ids
+    network_mode: "host"
+    volumes:
+      - ./zeek:/zeek
+    restart: unless-stopped
